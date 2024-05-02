@@ -1,0 +1,55 @@
+/* placement */
+ul {
+    padding-left: 25px;
+}
+
+/* icons */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.fa-icon {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 30px;
+}
+
+.my-scholar-icon {
+    font-size: 27px;
+    margin-top: 2px;
+}
+
+/* image */
+.center-image {
+    min-height: 90px;
+    max-height: 140px;
+    border-radius: 100%;
+    margin: 5px;
+}
+
+.max-width-600 {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.responsive-image {
+    width: 95%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 5px auto;
+}
+
+/* math */
+
+.equation-row {
+    /* center equations horizontally */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}

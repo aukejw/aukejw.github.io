@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Auke Wiggers</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+</head>
+
+<header class="max-width-600">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <img src="assets/img/me.jpg" class="center-image">
+    </div>
+    <div class="row d-flex justify-content-center text-center">
+      <h2 class="title">Auke Wiggers</h2>
+    </div>
+    <div class="row icon-container">
+      <a href="https://www.linkedin.com/in/auke-wiggers-871ba835" class="icon-link" data-tooltip="LinkedIn">
+        <i class="fa-brands fa-linkedin fa-icon"></i>
+      </a>
+      <a hrEf="https://scholar.google.com/citations?hl=nl&user=rrwwB4cAAAAJ&view_op=list_works&sortby=pubdate"
+        class="icon-link" data-tooltip="Google Scholar">
+        <i class="fa-brands fa-google-scholar fa-icon my-scholar-icon"></i>
+      </a>
+      <a href="https://github.com/aukejw" class="icon-link" data-tooltip="GitHub">
+        <i class="fa-brands fa-github-square fa-icon"></i>
+      </a>
+      <a href="https://bsky.app/profile/aukejw.bsky.social" class="icon-link" data-tooltip="Bluesky">
+        <i class="fa-brands fa-square-bluesky fa-icon"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<body class="max-width-600">
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <p>
+          My name is Auke. I'm working on applications of generative models.
+        </p>
+        <p>
+          I'm especially interested in running open-weight models on consumer hardware or edge devices.
+          For example, it's already possible
+          <a href="https://aukejw.github.io/mlx_transformers_benchmark/">
+            to run medium-sized language models on Apple silicon.
+          </a>
+        </p>
+        <p>
+          I was previously a research scientist/engineer at Qualcomm AI Research, where I touched many topics:
+          efficient autoregressive inference, neural data compression, on-device deployment and
+          synthetic data for autonomous driving to name a few.
+          Before that, I trained neural networks using Theano as data scientist at Scyfer
+          (acquired by Qualcomm in 2017).
+        </p>
+      </div>
+
+      <div class="row">
+        <h5>Public talks, workshops, open-source work</h5>
+        <ul>
+          <li>
+            <a href="posts/adversarial_audio.html">
+              Producing adversarial audio.
+            </a><br>
+            How to trick OpenAI's Whisper into producing wrong transcriptions.
+          </li>
+          <li>
+            <a href="https://aukejw.github.io/mlx_transformers_benchmark">
+              mlx_transformers_benchmark
+            </a><br>
+            Benchmarking local LLMs and <code>mlx</code> operators on Apple silicon.
+          </li>
+          <li>
+            <a href="https://cvpr.thecvf.com/Conferences/2025/ProgramCommittee#all-outstanding-reviewer">
+              Outstanding reviewers CVPR 2025.
+            </a><br>
+            Nice to be acknowledged (5.3% of reviewers).
+            </a>
+          </li>
+          <li>
+            <a href="https://sites.google.com/view/elvm/home">
+              Efficient Large Vision Models workshop @ CVPR 2025.
+            </a>
+            <br> Renewed! Co-organizing.
+          </li>
+          <li>
+            <a href="https://cvpr.thecvf.com/virtual/2024/workshop/23578">
+              Efficient Large Vision Models workshop @ CVPR 2024.
+            </a><br>
+            Co-organizer.
+          </li>
+          <li>
+            <a
+              href="https://podcasts.apple.com/nl/podcast/advances-in-neural-compression-with-auke-wiggers/id1116303051?i=1000559352666">
+              TWIML AI podcast
+            </a><br>
+            I was a guest at Sam Charrington's excellent ML podcast.
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=Z6XX2aNtg-g">
+              Efficient transformers: towards deployment on edge devices.
+            </a><br>Invited talk @ Transformers at Work 2022.
+          </li>
+          <li>
+            <a href="https://storage.googleapis.com/clic2022_public/slides/2022-06-19_clic_talk.pdf">
+              Efficient Neural Codecs.</a><br>
+            Invited talk @ CLIC 2022 (CVPR workshop).
+          </li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <h5>Selected publications</h5>
+        <ul id="publicationContainer" class="">
+          <!-- populated from json.. -->
+        </ul>
+      </div>
+
+
+      <script>
+        fetch("assets/data/publications.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const publicationContainer = document.getElementById("publicationContainer");
+
+            data.forEach((element) => {
+              // Create a new publication item
+              const publicationRow = document.createElement("li");
+              const publicationText = document.createElement("div");
+
+              let publicationTextHTML = `
+              <i>${element.title}</i><br>${element.author}<br>
+              ${element.conference} ${element.year}.
+          `;
+
+              if (typeof element.arxiv !== "undefined")
+                publicationTextHTML += `
+              <a href=${element.arxiv}>[ArXiv]</a>
+            `;
+              if (typeof element.link !== "undefined")
+                publicationTextHTML += `
+              <a href=${element.link}>[Link]</a>
+            `;
+              if (typeof element.github !== "undefined")
+                publicationTextHTML += `
+              <a href=${element.github}>[GitHub]</a>
+            `;
+              publicationText.innerHTML = publicationTextHTML;
+
+              // Append the publication item to the container
+              publicationRow.appendChild(publicationText);
+              publicationContainer.appendChild(publicationRow);
+            });
+          })
+          .catch((error) => console.error('Error fetching data:', error));
+      </script>
+    </div>
+  </div>
+
+</body>
+
+</html>

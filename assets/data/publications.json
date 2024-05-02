@@ -1,0 +1,73 @@
+[
+    {
+        "title": "CodeIt: Self-Improving Language Models with Prioritized Hindsight Replay",
+        "author": "Natasha Butt, Błażej Manczak, Auke Wiggers, Corrado Rainone, David Zhang, Michaël Defferrard, Taco Cohen", 
+        "arxiv": "https://arxiv.org/abs/2402.04858",
+        "link": "https://proceedings.mlr.press/v235/butt24a.html",
+        "github": "https://github.com/Qualcomm-AI-research/codeit",
+        "conference": "ICML",
+        "year": 2024,
+        "thumbnail": "assets/img/codeit_thumbnail.png"
+    },
+    {
+        "title": "MobileNVC: Real-time 1080p Neural Video Compression on a Mobile Device",
+        "author": "Ties van Rozendaal, Tushar Singhal, Hoang Le, Guillaume Sautiere, Amir Said, Krishna Buska, Anjuman Raha, Dimitris Kalatzis, Hitarth Mehta, Frank Mayer, Liang Zhang, Markus Nagel, Auke Wiggers",
+        "arxiv": "https://arxiv.org/abs/2310.01258",
+        "link": "https://proceedings.mlr.press/v119/wiggers20a.html",
+        "conference": "WACV",
+        "year": 2024,
+        "thumbnail": "assets/img/mobilenvc_thumbnail.png"
+    },
+    {
+        "title": "Instance-adaptive video compression: Improving neural codecs by training on the test set",
+        "author": "Ties van Rozendaal, Johann Brehmer, Yunfan Zhang, Reza Pourreza, Auke Wiggers, Taco Cohen",
+        "arxiv": "https://arxiv.org/abs/2111.10302",
+        "link": "https://openreview.net/forum?id=akg6kdx0Pk",
+        "conference": "TMLR",
+        "year": 2023,
+        "thumbnail": "assets/img/instacompression_thumbnail.png"
+    },
+    {
+        "title": "DIRAC: A residual diffusion model for high perceptual quality codec augmentation",
+        "author": "Noor Fathima Ghouse*, Jens Petersen*, Auke Wiggers*, Tianlin Xu, Guillaume Sautiere",
+        "arxiv": "https://arxiv.org/abs/2301.05489",
+        "conference": "preprint",
+        "year": 2023,
+        "thumbnail": "assets/img/dirac_thumbnail.png"
+    },
+    {
+        "title": "Boosting neural video codecs by exploiting hierarchical redundancy",
+        "author": "Reza Pourreza, Hoang Le, Amir Said, Guillaume Sautiere, Auke Wiggers",
+        "arxiv": "https://arxiv.org/abs/2208.04303",
+        "link": "https://openaccess.thecvf.com/content/WACV2023/papers/Pourreza_Boosting_Neural_Video_Codecs_by_Exploiting_Hierarchical_Redundancy_WACV_2023_paper.pdf",
+        "conference": "WACV",
+        "year": 2023,
+        "thumbnail": "assets/img/boostingneuralcodecs_thumbnail.png"
+    },
+    {
+        "title": "Mobilecodec: neural inter-frame video compression on mobile devices",
+        "author": "Hoang Le, Liang Zhang, Amir Said, Guillaume Sautiere, Yang Yang, Pranav Shrestha, Fei Yin, Reza Pourreza, Auke Wiggers",
+        "arxiv": "https://arxiv.org/abs/2207.08338",
+        "link": "https://dl.acm.org/doi/10.1145/3524273.3532906",
+        "conference": "ACM MMSys",
+        "year": 2022,
+        "thumbnail": "assets/img/mobilecodec_wide_thumbnail.png"
+    },
+    {
+        "title": "Predictive sampling with forecasting autoregressive models",
+        "author": "Auke Wiggers, Emiel Hoogeboom",
+        "arxiv": "https://arxiv.org/abs/2002.09928",
+        "link": "https://proceedings.mlr.press/v119/wiggers20a.html",
+        "conference": "ICML",
+        "year": 2020,
+        "thumbnail": "assets/img/predictivesampling_thumbnail.png"
+    },
+    {
+        "title": "Structure in the Value Function of Two-Player Zero-Sum Games of Incomplete Information",
+        "author": "Auke Wiggers, Frans Oliehoek, Diederik Roijers",
+        "arxiv": "https://arxiv.org/pdf/1606.06888",
+        "link": "https://ebooks.iospress.nl/publication/44953",
+        "conference": "ECAI",
+        "year": 2016
+    }
+]
