@@ -115,7 +115,7 @@
         The encoder takes this log-mel-spectrogram input and produces an embedding tensor that
         serves as conditioning for the autoregressive decoder (via cross-attention). The decoder
         hen outputs the probability of the next token given previous ones, which gives us the
-        joint log-probability of a given sentence T, represented a sequence of text tokens:
+        joint log-probability of a given sentence T, represented by a sequence of tokens:
         </p>
         <div class="equation-row">
           \[
@@ -125,7 +125,7 @@
         </div>
         <p>
           To create adversarial examples, the model weights are frozen, and we compute the gradient
-          of the log-likelihood of a token sequence with respect to the input audio only.
+          of the above log-likelihood with respect to the input audio only.
           We do need to choose which input we modify. Modifying the log-mel-spectrgram is not
           sufficient: the mapping from waveform to mel-spectrogram is not 1-1, and inversion
           is inexact. Directly optimizing the waveform is in theory possible, but is unlikely
@@ -165,9 +165,9 @@
           We can visualize how the transcription changes over time, here shown for the
           target sentence
           <i>
-            "It is quite easy to create adversarial exmaples for open-weight models. Just optimize the input."
+            "It is quite easy to create adversarial exmaples for open-weight models. Just optimize the input".
           </i>
-          After 750 iterations, the model has landed on the right transcription.
+          After 750 iterations, the model produces the desired transcription.
           Note that the loss shows some instability, on which more later.
           <img src="../assets/img/2025-05-23_progress.png" class="responsive-image" />
         </p>
@@ -197,6 +197,7 @@
         <h3>In practice</h3>
         <p>
           For Whisper, optimizing the magnitudes comes with a few caveats.
+          We explain a few of our implementation choices.
         </p>
         <div>
           <h5>A. Reloading the audio</h6>
@@ -205,8 +206,8 @@
               (<a href="https://www.audiolabs-erlangen.de/resources/MIR/FMP/C2/C2_STFT-Inverse.html">under most
                 conditions</a>),
               but the often-used overlap-add method used during inversion may discard small numbers due
-              to numerical precision. This is usually not so important, but when perturbations are small,
-              it is quite impactful.
+              to numerical precision. This is usually not important, but when the change in magnitude
+              is very small, it is quite impactful.
             </p>
             <p>
               We can address this by re-computing the magnitude every few iterations, i.e., reconstructing the
@@ -257,8 +258,9 @@
                   clearly see this when visualizing the difference between optimized and original
                   log-mel-spectrograms: non-speech regions are modified, speech regions are not.
                   <img src="../assets/img/2025-05-23_spec_difference.png" class="responsive-image">
-                  Depending on your goal, this is a feature. It does mean that we cannot
-                  substantially change the audio through optimization alone.
+                  Depending on your goal, this can be a feature. We want to retain the original speech
+                  audio, so it is not an issue. It does mean that we cannot substantially change the
+                  spoken words through optimization alone.
                 </p>
         </div>
 
@@ -267,16 +269,17 @@
           The samples shown here are rather harmless and a bit artificial.
           We can incorporate these examples during training, but improving robustness to synthetic samples
           does not automatically mean we become more robust to real-world background noise.
-          For systems with voice inputs, I may be able to fool the transcription model, but it's (usually)
-          still up to a downstream backend to decide what to do with the transcribed text.
+          And even if we can fool the transcription model, its output is (usually)
+          still parsed by a downstream backend that decides what to do with the transcription.
         </p>
         <p>
           Still, these samples are a great way to probe the limits of the model. For example,
-          minimizing the probability of the original transcription shows which tokens are often confused
-          for one another, and we can use this to guide curation of our (real) training data.
+          minimizing the probability of the original transcription moves probability mass to
+          similar sounding tokens. We can use this knowledge to guide curation and collection
+          of our (real) training data.
         </p>
         <p>
-          The attacking method used here is also a bit naive, and more advanced attacks have been proposed
+          The attack method used here is a bit naive, and more advanced attacks have been proposed
           in previous work (see
           <a href=https://ieeexplore.ieee.org/document/10565833>
             [Bhanushali 2023]
@@ -298,10 +301,11 @@
           mode of operation for all requests.
         </p>
         <p>
+          All in all, it's quite straightforward to create adversarial audio already.
           As agents become more capable, and our way of interacting with them moves away from the
           keyboard and towards the microphone, I believe adversarial robustness is going to become
-          increasingly important. Until then, finding adversarial samples is - if nothing else -
-          a fun exercise.
+          increasingly important. Until then, finding these samples is - if nothing else - a fun
+          exercise.
         </p>
 
         <h3>References </h3>
