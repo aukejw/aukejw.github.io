@@ -1,7 +1,14 @@
 [
     {
+        "title": "Scene-Aware Location Modeling for Data Augmentation in Automotive Object Detection",
+        "author": "Jens Petersen*, Davide Abati*, Amirhossein Habibian, Auke Wiggers",
+        "arxiv": "https://arxiv.org/pdf/2504.17076",
+        "conference": "Preprint",
+        "year": 2025
+    },
+    {
         "title": "CodeIt: Self-Improving Language Models with Prioritized Hindsight Replay",
-        "author": "Natasha Butt, Błażej Manczak, Auke Wiggers, Corrado Rainone, David Zhang, Michaël Defferrard, Taco Cohen", 
+        "author": "Natasha Butt, Błażej Manczak, Auke Wiggers, Corrado Rainone, David Zhang, Michaël Defferrard, Taco Cohen",
         "arxiv": "https://arxiv.org/abs/2402.04858",
         "link": "https://proceedings.mlr.press/v235/butt24a.html",
         "github": "https://github.com/Qualcomm-AI-research/codeit",
@@ -31,7 +38,7 @@
         "title": "DIRAC: A residual diffusion model for high perceptual quality codec augmentation",
         "author": "Noor Fathima Ghouse*, Jens Petersen*, Auke Wiggers*, Tianlin Xu, Guillaume Sautiere",
         "arxiv": "https://arxiv.org/abs/2301.05489",
-        "conference": "preprint",
+        "conference": "Preprint",
         "year": 2023,
         "thumbnail": "assets/img/dirac_thumbnail.png"
     },

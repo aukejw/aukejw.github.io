@@ -138,10 +138,19 @@
               const publicationRow = document.createElement("li");
               const publicationText = document.createElement("div");
 
+              // Last names only
               let publicationTextHTML = `
-              <i>${element.title}</i><br>${element.author}<br>
-              ${element.conference} ${element.year}.
-          `;
+                <i>${element.title}</i><br>
+                  ${element.author.split(',').map(
+                name => {
+                  const lastName = name.trim().split(' ').slice(1).join(' ');
+                  if (lastName.includes("Wiggers")) {
+                    return `<u>${lastName}</u>`;
+                  }
+                  return lastName;
+                }).join(', ')} 
+                <br>
+                ${element.conference} ${element.year}.`;
 
               if (typeof element.arxiv !== "undefined")
                 publicationTextHTML += `
